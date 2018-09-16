@@ -1379,3 +1379,9 @@ function Base.getindex(v::StackedVector,i::Real)
     Base.depwarn("Indexing StackedVector with Real is deprecated", :getindex)
     v[Int(i)]
 end
+
+import Base: map
+@deprecate map(f::Function, sdf::SubDataFrame) f(sdf)
+
+@deprecate combine(f::Function, gd::GroupedDataFrame) map(f, gd)
+@deprecate combine(gd::GroupedDataFrame) map(identity, gd)
