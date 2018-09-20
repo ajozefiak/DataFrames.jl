@@ -92,12 +92,6 @@ function SubDataFrame(sdf::SubDataFrame, rowinds::Colon)
     return sdf
 end
 
-Base.copy(sdf::SubDataFrame) = sdf[:]
-Base.deepcopy(sdf::SubDataFrame) = sdf[:]
-
-DataFrame(sdf::SubDataFrame) = sdf[:]
-Base.convert(::Type{DataFrame}, sdf::SubDataFrame) = sdf[:]
-
 """
     parent(sdf::SubDataFrame)
 
